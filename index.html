@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliação Oficial - Banco de Dados Avançado</title>
+    <title>Recuperação Oficial - Banco de Dados Avançado</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
@@ -15,7 +15,7 @@
             -moz-user-select: none;
             -ms-user-select: none;
             overflow-x: hidden;
-            background: linear-gradient(135deg, #e0e7ff 0%, #ede9fe 100%);
+            background: linear-gradient(135deg, #fee2e2 0%, #ffedd5 100%);
             background-attachment: fixed;
         }
         
@@ -54,39 +54,36 @@
             padding: 0.5rem 1rem;
             background-color: #f9fafb;
             font-weight: 600;
-            color: #4f46e5;
+            color: #b91c1c;
             width: 100%;
             transition: all 0.2s;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234f46e5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23b91c1c'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 1rem center;
             background-size: 1.2em;
         }
         .select-associacao:focus {
             outline: none;
-            border-color: #6366f1;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+            border-color: #ef4444;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.2);
             background-color: #fff;
         }
 
         /* Check customizado Tailwind Peer */
         .radio-custom:checked + div {
-            border-color: #3b82f6;
-            background-color: #eff6ff;
-            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+            border-color: #ef4444;
+            background-color: #fef2f2;
+            box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1);
         }
         .radio-custom:checked + div .radio-indicator {
-            background-color: #3b82f6;
-            border-color: #3b82f6;
+            background-color: #ef4444;
+            border-color: #ef4444;
         }
         .radio-custom:checked + div .radio-indicator::after {
             opacity: 1;
             transform: scale(1);
         }
-        
-        .opt-correta { background-color: #dcfce7 !important; border-color: #22c55e !important; }
-        .opt-errada { background-color: #fee2e2 !important; border-color: #ef4444 !important; }
     </style>
 </head>
 <body class="text-gray-800 min-h-screen flex flex-col">
@@ -98,18 +95,18 @@
             <h2 id="alert-title" class="text-xl md:text-2xl font-black text-gray-800 mb-2">Atenção</h2>
             <p id="alert-message" class="text-sm md:text-base text-gray-600 mb-6 font-medium leading-relaxed"></p>
             <div id="alert-actions" class="flex gap-3 justify-center w-full">
-                <button onclick="fecharAlerta()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-lg">Entendi</button>
+                <button onclick="fecharAlerta()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition shadow-lg">Entendi</button>
             </div>
         </div>
     </div>
 
     <!-- TELA 1: LOGIN ALUNO -->
     <div id="login-screen" class="fixed inset-0 flex flex-col items-center justify-center p-4 z-[60]">
-        <button id="btn-login-prof-trigger" class="absolute top-4 right-4 text-xs font-bold text-gray-400 hover:text-indigo-600 transition cursor-pointer px-4 py-2 rounded-full bg-white/50 backdrop-blur-md shadow-sm z-50 flex items-center gap-2">
+        <button id="btn-login-prof-trigger" class="absolute top-4 right-4 text-xs font-bold text-gray-400 hover:text-red-600 transition cursor-pointer px-4 py-2 rounded-full bg-white/50 backdrop-blur-md shadow-sm z-50 flex items-center gap-2">
             <span>🔒</span> Acesso Docente
         </button>
 
-        <div class="glass-panel p-6 md:p-10 rounded-3xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.07)] w-full max-w-md border-t-8 border-t-blue-600">
+        <div class="glass-panel p-6 md:p-10 rounded-3xl shadow-[0_20px_50px_rgba(220,_38,_38,_0.07)] w-full max-w-md border-t-8 border-t-red-600">
             <div class="text-center mb-6 md:mb-8">
                 <div class="flex justify-center items-center gap-4 mb-4 bg-white/50 p-3 md:p-4 rounded-2xl shadow-sm">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-eQz5cIxSNOsD93ZVZOuG9m33koJW2CsrQ&s" alt="Logo Escola" class="h-10 md:h-12 drop-shadow-md">
@@ -117,14 +114,14 @@
                     <img src="https://www.es.gov.br/Media/PortalES/_Profiles/c4d8c6e6/d8d1f292/escola%20do%20futuro-01.png?v=638222624000245250" alt="Escola do Futuro" class="h-6 md:h-8 drop-shadow-md">
                 </div>
                 <h2 class="font-black text-gray-800 text-base md:text-lg">CEEFMTI "SENADOR DIRCEU CARDOSO"</h2>
-                <div class="inline-block mt-2 px-3 py-1 bg-blue-100 text-blue-800 text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-full">Banco de Dados - 2ª Série</div>
+                <div class="inline-block mt-2 px-3 py-1 bg-red-100 text-red-800 text-[10px] md:text-xs font-bold uppercase tracking-widest rounded-full">Recuperação de Banco de Dados</div>
             </div>
 
             <div class="space-y-4 md:space-y-5">
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Identificação do Aluno</label>
                     <div class="relative">
-                        <select id="aluno-select" class="w-full border-2 border-gray-200 rounded-xl p-3 md:p-4 bg-white outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition appearance-none font-medium text-gray-700 cursor-pointer text-sm">
+                        <select id="aluno-select" class="w-full border-2 border-gray-200 rounded-xl p-3 md:p-4 bg-white outline-none focus:border-red-500 focus:ring-4 focus:ring-red-100 transition appearance-none font-medium text-gray-700 cursor-pointer text-sm">
                             <option value="">-- Escolha o seu nome na lista --</option>
                         </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
@@ -134,13 +131,13 @@
                 </div>
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">Credencial de Acesso</label>
-                    <input type="password" id="aluno-senha" placeholder="Data de nascimento (Ex: 10052009)" class="w-full border-2 border-gray-200 rounded-xl p-3 md:p-4 bg-white outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition font-mono text-base md:text-lg tracking-widest" maxlength="8">
+                    <input type="password" id="aluno-senha" placeholder="Data de nascimento (Ex: 10052009)" class="w-full border-2 border-gray-200 rounded-xl p-3 md:p-4 bg-white outline-none focus:border-red-500 focus:ring-4 focus:ring-red-100 transition font-mono text-base md:text-lg tracking-widest" maxlength="8">
                 </div>
                 
                 <p id="login-error" class="text-red-500 text-xs md:text-sm hidden text-center font-bold bg-red-50 p-2 rounded-lg border border-red-100"></p>
                 
-                <button id="btn-login" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-3 md:py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0 flex justify-center items-center gap-2">
-                    Aceder ao Ambiente <span>🚀</span>
+                <button id="btn-login" class="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-black py-3 md:py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0 flex justify-center items-center gap-2">
+                    Aceder ao Ambiente de Recuperação <span>🚀</span>
                 </button>
             </div>
         </div>
@@ -154,7 +151,7 @@
                 <h2 class="text-xl md:text-2xl font-black text-gray-800">Acesso Restrito</h2>
             </div>
             <label class="block text-sm font-bold text-gray-700 mb-1">Chave de Segurança</label>
-            <input type="password" id="prof-senha-input" placeholder="••••••••••••" class="w-full border-2 border-gray-200 p-3 md:p-4 rounded-xl mb-2 outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 font-mono">
+            <input type="password" id="prof-senha-input" placeholder="••••••••••••" class="w-full border-2 border-gray-200 p-3 md:p-4 rounded-xl mb-2 outline-none focus:border-red-500 focus:ring-4 focus:ring-red-100 font-mono">
             <p id="prof-login-error" class="text-red-500 text-xs font-bold mb-4 hidden text-center bg-red-50 py-2 rounded-lg">❌ Credencial incorreta. Acesso negado.</p>
             <div class="flex gap-3">
                 <button id="btn-prof-cancel" class="flex-1 bg-gray-100 hover:bg-gray-200 py-3 rounded-xl font-bold text-gray-600 transition">Voltar</button>
@@ -165,10 +162,10 @@
 
     <!-- TELA: PAINEL DO PROFESSOR -->
     <div id="professor-screen" class="fixed inset-0 bg-gray-100 z-[65] hidden flex-col items-center p-4 overflow-y-auto">
-        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl w-full max-w-5xl border-t-8 border-indigo-600 my-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl w-full max-w-5xl border-t-8 border-red-600 my-4">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-gray-100 pb-4 md:pb-6">
                 <div>
-                    <h1 class="text-2xl md:text-3xl font-black text-gray-800 mb-1 flex items-center gap-2">Painel de Gestão Docente</h1>
+                    <h1 class="text-2xl md:text-3xl font-black text-gray-800 mb-1 flex items-center gap-2">Painel de Recuperação</h1>
                     <button id="btn-prof-sair" class="text-sm text-gray-500 font-bold hover:text-red-600 transition flex items-center gap-1">← Encerrar Sessão Segura</button>
                 </div>
                 <div class="mt-4 md:mt-0 bg-gray-50 px-4 md:px-6 py-2 md:py-3 rounded-2xl border border-gray-200 text-right">
@@ -187,13 +184,13 @@
             <div class="flex flex-col sm:flex-row justify-between sm:items-end mb-4 md:mb-6 gap-4">
                 <div>
                     <h2 class="text-lg md:text-xl font-black text-gray-800">Entregas dos Alunos</h2>
-                    <p class="text-xs md:text-sm text-gray-500">Monitore, corrija e faça a gestão das avaliações recebidas.</p>
+                    <p class="text-xs md:text-sm text-gray-500">Monitore as avaliações de recuperação recebidas.</p>
                 </div>
                 <div class="flex gap-2">
                     <button id="btn-prof-corrigir-todos" class="text-xs md:text-sm bg-purple-50 text-purple-700 px-4 md:px-5 py-2 md:py-2.5 rounded-xl font-bold hover:bg-purple-100 transition flex items-center justify-center gap-2 border border-purple-100 w-full sm:w-auto shadow-sm">
                         Corrigir Lote com IA <span>✨</span>
                     </button>
-                    <button id="btn-prof-atualizar" class="text-xs md:text-sm bg-indigo-50 text-indigo-700 px-4 md:px-5 py-2 md:py-2.5 rounded-xl font-bold hover:bg-indigo-100 transition flex items-center justify-center gap-2 border border-indigo-100 w-full sm:w-auto shadow-sm">
+                    <button id="btn-prof-atualizar" class="text-xs md:text-sm bg-red-50 text-red-700 px-4 md:px-5 py-2 md:py-2.5 rounded-xl font-bold hover:bg-red-100 transition flex items-center justify-center gap-2 border border-red-100 w-full sm:w-auto shadow-sm">
                         Sincronizar <span>🔄</span>
                     </button>
                 </div>
@@ -206,14 +203,14 @@
     <div id="review-screen" class="fixed inset-0 bg-gray-50 z-[80] hidden flex-col items-center p-2 md:p-4 overflow-y-auto">
         <div class="w-full max-w-4xl flex justify-between items-center mb-4 sticky top-0 bg-gray-50/90 backdrop-blur-md py-3 z-20 border-b border-gray-200">
             <button id="btn-fechar-review" class="bg-white border-2 border-gray-200 text-gray-700 hover:bg-gray-100 px-4 md:px-6 py-2 rounded-xl font-black transition flex items-center gap-2 text-sm md:text-base">← Voltar</button>
-            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 md:px-8 py-2 rounded-full font-black text-base md:text-xl shadow-lg shadow-blue-200 flex items-center gap-2">
+            <div class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 md:px-8 py-2 rounded-full font-black text-base md:text-xl shadow-lg shadow-red-200 flex items-center gap-2">
                 Nota Total: <span id="review-nota-total" class="bg-white/20 px-2 py-1 rounded-lg">0.0</span> / 14.0
             </div>
         </div>
         
         <div class="bg-white p-6 md:p-10 rounded-3xl shadow-xl w-full max-w-4xl border border-gray-100">
             <div class="mb-8 md:mb-10 text-center">
-                <p class="text-[10px] md:text-xs text-indigo-600 font-black uppercase tracking-widest mb-2 bg-indigo-50 inline-block px-3 py-1 rounded-full">Modo de Correção / Revisão</p>
+                <p class="text-[10px] md:text-xs text-red-600 font-black uppercase tracking-widest mb-2 bg-red-50 inline-block px-3 py-1 rounded-full">Modo de Correção / Revisão</p>
                 <h1 class="text-2xl md:text-4xl font-black text-gray-800" id="review-nome-aluno">Nome do Aluno</h1>
             </div>
 
@@ -233,8 +230,8 @@
                 
                 <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                     <div class="shrink-0 bg-white p-4 rounded-2xl border border-yellow-200 shadow-sm text-center w-full md:w-auto">
-                        <label class="block font-black text-yellow-800 mb-2 uppercase text-[10px] tracking-widest">Nota (Máx 3.0)</label>
-                        <input type="number" id="input-nota-disc" step="0.5" min="0" max="3" class="text-4xl md:text-5xl font-black text-center w-28 md:w-32 border-none focus:outline-none bg-transparent text-indigo-700">
+                        <label class="block font-black text-yellow-800 mb-2 uppercase text-[10px] tracking-widest">Nota (Máx 6.0)</label>
+                        <input type="number" id="input-nota-disc" step="0.5" min="0" max="6" class="text-4xl md:text-5xl font-black text-center w-28 md:w-32 border-none focus:outline-none bg-transparent text-red-700">
                     </div>
                     <div class="flex-1 w-full relative">
                         <label class="block font-black text-yellow-800 mb-2 uppercase text-[10px] tracking-widest">Comentários e Orientações Pedagógicas</label>
@@ -249,16 +246,16 @@
             </div>
             
             <!-- Feedback Visual para o Aluno -->
-            <div id="area-feedback-aluno" class="hidden mt-10 md:mt-16 bg-blue-50 p-6 md:p-8 rounded-3xl border-2 border-blue-100">
+            <div id="area-feedback-aluno" class="hidden mt-10 md:mt-16 bg-red-50 p-6 md:p-8 rounded-3xl border-2 border-red-100">
                 <div class="flex items-center gap-2 md:gap-3 mb-4">
                     <span class="text-xl md:text-2xl">👨‍🏫</span>
-                    <h3 class="text-lg md:text-xl font-black text-blue-900">Feedback do Professor</h3>
+                    <h3 class="text-lg md:text-xl font-black text-red-900">Feedback do Professor</h3>
                 </div>
-                <div class="flex items-center gap-3 mb-4 md:mb-6 bg-white w-max px-3 md:px-4 py-2 rounded-xl border border-blue-100 shadow-sm">
+                <div class="flex items-center gap-3 mb-4 md:mb-6 bg-white w-max px-3 md:px-4 py-2 rounded-xl border border-red-100 shadow-sm">
                     <span class="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-wider">Pontuação na Discursiva:</span>
-                    <span id="view-nota-disc" class="text-xl md:text-2xl text-blue-700 font-black">0.0</span>
+                    <span id="view-nota-disc" class="text-xl md:text-2xl text-red-700 font-black">0.0</span>
                 </div>
-                <div id="view-feedback-texto" class="p-4 md:p-6 bg-white rounded-2xl italic text-gray-700 border border-blue-100 shadow-sm text-sm md:text-lg leading-relaxed text-justify whitespace-pre-wrap"></div>
+                <div id="view-feedback-texto" class="p-4 md:p-6 bg-white rounded-2xl italic text-gray-700 border border-red-100 shadow-sm text-sm md:text-lg leading-relaxed text-justify whitespace-pre-wrap"></div>
             </div>
         </div>
     </div>
@@ -266,20 +263,20 @@
     <!-- TELA 2: INSTRUÇÕES (ALUNO) -->
     <div id="start-screen" class="fixed inset-0 bg-white z-50 hidden flex-col items-center justify-center p-4 text-center overflow-y-auto bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
         <div class="glass-panel p-6 md:p-10 rounded-3xl shadow-2xl max-w-2xl w-full border border-gray-100 relative overflow-hidden">
-            <div class="absolute -top-24 -right-24 w-48 h-48 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-            <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-red-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+            <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-orange-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
             
             <div class="relative z-10">
-                <h1 id="welcome-title" class="text-3xl md:text-4xl font-black mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-700">Prepare-se!</h1>
+                <h1 id="welcome-title" class="text-3xl md:text-4xl font-black mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-orange-700">Atenção, Foco Total!</h1>
                 
                 <div class="bg-gradient-to-r from-yellow-50 to-orange-50 border-l-8 border-yellow-400 p-4 md:p-6 rounded-2xl text-left shadow-sm mb-6 md:mb-8">
-                    <p class="text-yellow-900 font-black italic text-lg md:text-xl mb-2 text-justify leading-relaxed">"Ter o caderno aberto é uma vantagem, mas saber o que procurar é a verdadeira inteligência."</p>
-                    <p class="text-xs md:text-sm text-yellow-800 font-medium text-justify leading-relaxed">Esta avaliação não testa a sua memória, mas sim a sua capacidade de <strong>interpretar cenários</strong> e aplicar a lógica SQL na prática.</p>
+                    <p class="text-yellow-900 font-black italic text-lg md:text-xl mb-2 text-justify leading-relaxed">"A recuperação não é um castigo, é uma nova chance de provar que você domina a lógica."</p>
+                    <p class="text-xs md:text-sm text-yellow-800 font-medium text-justify leading-relaxed">Leia cada cenário com cuidado. As perguntas foram feitas especificamente sobre o contexto do <strong>nosso município</strong>, por isso, ferramentas de inteligência artificial ou pesquisas rápidas no Google não trarão a resposta correta se você não aplicar a lógica estudada.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-10 text-left">
                     <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-3">
-                        <div class="text-xl bg-blue-50 p-2 rounded-xl">💾</div>
+                        <div class="text-xl bg-red-50 p-2 rounded-xl">💾</div>
                         <div>
                             <p class="font-black text-gray-800 mb-1 text-sm md:text-base">Salvamento Automático</p>
                             <p class="text-[11px] md:text-xs text-gray-500 font-medium leading-relaxed text-justify">As suas respostas são sincronizadas com o servidor a cada troca de questão.</p>
@@ -288,12 +285,12 @@
                     <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-3">
                         <div class="text-xl bg-red-50 p-2 rounded-xl">🚨</div>
                         <div>
-                            <p class="font-black text-gray-800 mb-1 text-sm md:text-base">Ambiente Controlado</p>
-                            <p class="text-[11px] md:text-xs text-gray-500 font-medium leading-relaxed text-justify">A prova ocupará o ecrã inteiro. Mudar de aba ou minimizar bloqueará o sistema.</p>
+                            <p class="font-black text-gray-800 mb-1 text-sm md:text-base">Ambiente Vigiado</p>
+                            <p class="text-[11px] md:text-xs text-gray-500 font-medium leading-relaxed text-justify">Mudar de aba, minimizar a tela ou tentar tirar prints causará o bloqueio e anulação da prova.</p>
                         </div>
                     </div>
                 </div>
-                <button id="btn-iniciar" class="w-full bg-gray-900 hover:bg-black text-white font-black py-4 md:py-5 rounded-2xl shadow-[0_10px_20px_rgba(0,_0,_0,_0.2)] text-lg md:text-xl transform hover:-translate-y-1 transition active:translate-y-0">Estou Pronto! Iniciar Prova 🚀</button>
+                <button id="btn-iniciar" class="w-full bg-red-700 hover:bg-red-800 text-white font-black py-4 md:py-5 rounded-2xl shadow-[0_10px_20px_rgba(220,_38,_38,_0.3)] text-lg md:text-xl transform hover:-translate-y-1 transition active:translate-y-0">Estou Pronto! Iniciar Recuperação 🚀</button>
             </div>
         </div>
     </div>
@@ -303,7 +300,7 @@
         <div class="bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/20 max-w-2xl w-full pop-in">
             <div class="text-6xl md:text-8xl mb-4 md:mb-6 animate-bounce">⚠️</div>
             <h2 class="text-2xl md:text-4xl font-black mb-3 md:mb-4 tracking-tight">AVALIAÇÃO INTERROMPIDA</h2>
-            <p class="text-sm md:text-lg mb-6 md:mb-10 font-medium text-red-100 text-justify leading-relaxed">Detetamos que saiu do ambiente de prova ou tentou utilizar atalhos bloqueados. O foco total é obrigatório para a integridade do processo.</p>
+            <p class="text-sm md:text-lg mb-6 md:mb-10 font-medium text-red-100 text-justify leading-relaxed">Detetamos que saiu do ambiente de prova ou tentou utilizar atalhos bloqueados. O foco total é obrigatório para a integridade do processo de recuperação.</p>
             <button id="btn-retornar" class="bg-white text-red-700 font-black py-3 md:py-4 px-8 md:px-12 rounded-xl md:rounded-2xl text-base md:text-xl shadow-2xl hover:bg-gray-100 transition transform hover:scale-105">Retornar Imediatamente ao Foco</button>
         </div>
     </div>
@@ -312,10 +309,10 @@
     <div id="finish-screen" class="fixed inset-0 bg-gray-50 z-[90] hidden flex-col items-center justify-center p-4 text-center">
         <div class="glass-panel p-8 md:p-12 rounded-3xl shadow-2xl max-w-lg w-full border-t-8 border-green-500 pop-in">
             <div class="text-6xl md:text-7xl mb-4 md:mb-6">✅</div>
-            <h2 class="text-2xl md:text-3xl font-black text-green-600 mb-3 md:mb-4 tracking-tight">Missão Cumprida!</h2>
-            <p class="text-gray-600 mb-6 md:mb-8 italic text-sm md:text-lg leading-relaxed text-justify">"A educação é o passaporte para o futuro, pois o amanhã pertence àqueles que se preparam hoje."</p>
+            <h2 class="text-2xl md:text-3xl font-black text-green-600 mb-3 md:mb-4 tracking-tight">Recuperação Entregue!</h2>
+            <p class="text-gray-600 mb-6 md:mb-8 italic text-sm md:text-lg leading-relaxed text-justify">"O sucesso é a soma de pequenos esforços repetidos dia após dia."</p>
             <div class="bg-green-50 p-3 md:p-4 rounded-xl border border-green-100 mb-4 md:mb-6">
-                <p class="text-xs md:text-sm text-green-800 font-bold">Respostas transmitidas com segurança para a base de dados.</p>
+                <p class="text-xs md:text-sm text-green-800 font-bold">Respostas da recuperação transmitidas com segurança.</p>
             </div>
             <p class="text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest">Já pode fechar esta janela.</p>
         </div>
@@ -325,20 +322,20 @@
     <div id="student-results-screen" class="fixed inset-0 bg-gray-100 z-[65] hidden flex-col items-center justify-center p-4 text-center">
         <div class="glass-panel p-8 md:p-12 rounded-3xl shadow-2xl border border-white max-w-md w-full pop-in">
             <div class="text-5xl mb-4">🏆</div>
-            <h2 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">Boletim Oficial</h2>
+            <h2 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">Boletim de Recuperação</h2>
             <p class="text-sm md:text-base text-gray-500 font-bold mb-6 md:mb-8" id="res-aluno-nome"></p>
             
-            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-6 md:p-8 rounded-3xl text-white shadow-[0_10px_30px_rgba(79,_70,_229,_0.3)] mb-6 md:mb-8 relative overflow-hidden">
+            <div class="bg-gradient-to-br from-red-600 to-orange-700 p-6 md:p-8 rounded-3xl text-white shadow-[0_10px_30px_rgba(220,_38,_38,_0.3)] mb-6 md:mb-8 relative overflow-hidden">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 text-8xl opacity-10">📝</div>
-                <p class="text-[10px] md:text-xs font-black uppercase tracking-widest mb-2 text-blue-200 relative z-10">Pontuação Consolidada</p>
-                <p class="text-6xl md:text-7xl font-black relative z-10"><span id="res-nota-total">0</span><span class="text-xl md:text-2xl text-blue-300">/14.0</span></p>
+                <p class="text-[10px] md:text-xs font-black uppercase tracking-widest mb-2 text-red-200 relative z-10">Nova Pontuação Consolidada</p>
+                <p class="text-6xl md:text-7xl font-black relative z-10"><span id="res-nota-total">0</span><span class="text-xl md:text-2xl text-red-300">/14.0</span></p>
             </div>
             
             <div id="msg-aguardando-feedback" class="hidden bg-yellow-50 p-4 rounded-xl md:rounded-2xl border border-yellow-200 mb-4 shadow-sm">
-                <p class="text-sm md:text-base text-yellow-800 font-bold leading-relaxed text-justify">⚠️ A sua nota foi lançada. O gabarito e o feedback detalhado do professor serão libertados assim que todos os alunos da turma concluírem a avaliação.</p>
+                <p class="text-sm md:text-base text-yellow-800 font-bold leading-relaxed text-justify">⚠️ A sua nota foi lançada. O gabarito e a correção detalhada do professor serão libertados assim que todos os alunos concluírem.</p>
             </div>
 
-            <button id="btn-ver-prova-corrigida" class="w-full bg-white border-2 border-gray-200 text-gray-800 font-black py-3 md:py-4 rounded-xl md:rounded-2xl hover:bg-gray-50 hover:border-blue-500 transition shadow-sm text-sm md:text-base">Visualizar Gabarito Comentado</button>
+            <button id="btn-ver-prova-corrigida" class="w-full bg-white border-2 border-gray-200 text-gray-800 font-black py-3 md:py-4 rounded-xl md:rounded-2xl hover:bg-gray-50 hover:border-red-500 transition shadow-sm text-sm md:text-base">Visualizar Gabarito Comentado</button>
         </div>
     </div>
 
@@ -346,17 +343,17 @@
     <div id="quiz-content" class="max-w-4xl mx-auto p-4 md:p-6 bg-white shadow-2xl my-4 md:my-6 rounded-2xl md:rounded-3xl w-full hidden border border-gray-100 flex-1 flex-col relative z-10">
         <div class="sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 pb-2 mb-4 pt-2 z-20 flex justify-between items-end">
             <div>
-                <h2 class="text-lg md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-700">Avaliação SQL</h2>
+                <h2 class="text-lg md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-orange-700">Recuperação SQL</h2>
                 <p class="text-[10px] md:text-sm text-gray-400 font-bold uppercase tracking-widest mt-1"><span id="header-aluno-nome" class="text-gray-800">---</span></p>
             </div>
             <div class="flex flex-col items-end">
                 <span class="text-[8px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Hora Atual</span>
-                <div id="clock-display" class="font-mono text-xl md:text-2xl font-black text-blue-700 bg-blue-50 px-3 md:px-4 py-1 rounded-xl border border-blue-100 shadow-sm">00:00</div>
+                <div id="clock-display" class="font-mono text-xl md:text-2xl font-black text-red-700 bg-red-50 px-3 md:px-4 py-1 rounded-xl border border-red-100 shadow-sm">00:00</div>
             </div>
         </div>
 
         <div class="w-full bg-gray-100 rounded-full h-1.5 md:h-2 mb-4 md:mb-6">
-            <div id="progress-bar" class="bg-gradient-to-r from-blue-500 to-indigo-500 h-1.5 md:h-2 rounded-full transition-all duration-500 shadow-sm" style="width: 0%"></div>
+            <div id="progress-bar" class="bg-gradient-to-r from-red-500 to-orange-500 h-1.5 md:h-2 rounded-full transition-all duration-500 shadow-sm" style="width: 0%"></div>
         </div>
 
         <form id="avaliacao-form" class="flex-1 flex flex-col">
@@ -367,13 +364,13 @@
                     <button type="button" id="btn-prev" class="flex-1 sm:flex-none px-4 md:px-6 py-3 md:py-4 bg-white border-2 border-gray-200 text-gray-600 font-black rounded-xl md:rounded-2xl hover:bg-gray-50 hover:border-gray-300 disabled:opacity-30 disabled:hover:bg-white transition flex items-center justify-center gap-2 text-sm md:text-base">← <span class="hidden sm:inline">Anterior</span></button>
                     <button type="button" id="btn-next" class="flex-1 sm:flex-none px-6 md:px-8 py-3 md:py-4 bg-gray-900 text-white font-black rounded-xl md:rounded-2xl hover:bg-black shadow-lg shadow-gray-300 transition flex items-center justify-center gap-2 text-sm md:text-base">Avançar →</button>
                 </div>
-                <button type="button" id="btn-finalizar" class="hidden w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-green-600 text-white font-black rounded-xl md:rounded-2xl hover:bg-green-700 shadow-lg shadow-green-200 transition transform hover:-translate-y-1 animate-pulse text-sm md:text-base">ENTREGAR PROVA ✅</button>
+                <button type="button" id="btn-finalizar" class="hidden w-full sm:w-auto px-8 md:px-10 py-3 md:py-4 bg-green-600 text-white font-black rounded-xl md:rounded-2xl hover:bg-green-700 shadow-lg shadow-green-200 transition transform hover:-translate-y-1 animate-pulse text-sm md:text-base">ENTREGAR RECUPERAÇÃO ✅</button>
             </div>
             
             <div class="flex justify-center items-center gap-2 mt-4 md:mt-6">
                 <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                 </span>
                 <p class="text-[8px] md:text-[10px] text-gray-400 uppercase font-bold tracking-widest">Sincronização em Tempo Real Ativa</p>
             </div>
@@ -383,11 +380,11 @@
     <!-- MODAL DE CONFIRMAÇÃO DE ENVIO -->
     <div id="confirm-submit-modal" class="fixed inset-0 bg-black/60 z-[120] hidden flex-col items-center justify-center p-4 backdrop-blur-sm">
         <div class="glass-panel p-8 md:p-10 rounded-3xl shadow-2xl max-w-sm w-full text-center pop-in border border-white/50">
-            <div class="text-5xl md:text-6xl mb-4 md:mb-6 bg-blue-50 w-20 md:w-24 h-20 md:h-24 mx-auto rounded-full flex items-center justify-center text-blue-600">🚀</div>
+            <div class="text-5xl md:text-6xl mb-4 md:mb-6 bg-red-50 w-20 md:w-24 h-20 md:h-24 mx-auto rounded-full flex items-center justify-center text-red-600">🚀</div>
             <h2 class="text-xl md:text-2xl font-black text-gray-800 mb-2">Pronto para Enviar?</h2>
             <p class="text-xs md:text-sm text-gray-500 mb-6 md:mb-8 font-medium leading-relaxed text-justify">Reveja as suas respostas no seu caderno. Após confirmar a entrega, o acesso para modificações será permanentemente bloqueado.</p>
             <div class="flex flex-col gap-3">
-                <button id="btn-confirm-yes" class="w-full bg-green-600 text-white font-black py-3 md:py-4 rounded-xl shadow-[0_10px_20px_rgba(22,_163,_74,_0.2)] hover:bg-green-700 transition transform hover:-translate-y-1 text-sm md:text-base">Confirmar e Entregar</button>
+                <button id="btn-confirm-yes" class="w-full bg-red-600 text-white font-black py-3 md:py-4 rounded-xl shadow-[0_10px_20px_rgba(220,_38,_38,_0.2)] hover:bg-red-700 transition transform hover:-translate-y-1 text-sm md:text-base">Confirmar e Entregar</button>
                 <button id="btn-confirm-no" class="w-full bg-gray-100 text-gray-600 font-black py-3 md:py-4 rounded-xl hover:bg-gray-200 transition text-sm md:text-base">Voltar para Revisar</button>
             </div>
         </div>
@@ -424,7 +421,8 @@
             };
         }
         
-        const appIdStr = typeof __app_id !== 'undefined' ? __app_id : 'avaliacao-bd-2serie';
+        // NOVO APP ID PARA ISOLAR A RECUPERAÇÃO DA PROVA ORIGINAL
+        const appIdStr = typeof __app_id !== 'undefined' ? __app_id : 'recuperacao-bd-muqui';
         const googleSheetsUrl = "https://script.google.com/macros/s/AKfycbyTsCPN2da5mQY6s41SbE1S1S7PneLcaVq4Z6iJulb4_JBrwQJVu1UPdTDB8N-x5a42LA/exec";
 
         const app = initializeApp(firebaseConfig);
@@ -473,174 +471,66 @@
             { id: "aluno_test", nome: "ALUNO TESTE", senha: "123" }
         ];
 
-        // --- BANCO DE QUESTÕES ---
+        // --- BANCO DE QUESTÕES DE RECUPERAÇÃO (5 Questões - Contexto: Muqui/ES) ---
         const bancoDeQuestoes = [
             {
                 id: "q1", tipo: "multipla", correta: "b",
-                pergunta: "Em um sistema acadêmico escolar, o valor '7' acabou de ser gravado no servidor. Um programador novato aponta para a tela e afirma que aquele '7' é uma 'Informação extremamente valiosa da escola'. O DBA o corrige de imediato. Por que, no conceito de Banco de Dados, o programador novato errou de forma primária?",
+                pergunta: "ESTUDO DE CASO 1: A Prefeitura de Muqui está criando um sistema para catalogar e proteger todas as casas do Sítio Histórico. Eles criaram uma tabela chamada `casas_historicas`. O estagiário sugeriu usar a 'COR DA FACHADA' como Chave Primária (Primary Key) da tabela. Por que isso seria um erro catastrófico para a organização dos dados do município?",
                 opcoes: [
-                    "A) Porque o número 7 deveria ser obrigatoriamente um texto (VARCHAR), e informações reais são sempre tratadas como letras em SGBDs.",
-                    "B) Porque o valor '7', solto no banco e sem nenhum contexto (não sabemos se é nota, idade, total de faltas ou um ID), é apenas um Dado Bruto. A Informação só existe quando damos contexto e sentido a ele.",
-                    "C) Porque a escola exige que as informações sejam sempre salvas na nuvem, e o dado bruto está na rede local.",
-                    "D) Porque o '7' é um Metadado de sistema, responsável exclusivo por indexar relatórios no final de cada bimestre letivo.",
-                    "E) O programador não errou. Dado e Informação possuem o exato mesmo significado em ambientes de TI."
+                    "A) Porque cores em inglês e português misturadas geram erro de sintaxe fatal na compilação do SQL.",
+                    "B) Porque a Chave Primária exige um valor que seja absolutamente ÚNICO para cada registro. Como em Muqui existem várias casas com a mesma cor, o SGBD bloquearia os cadastros por violação de duplicidade.",
+                    "C) Porque a Chave Primária só aceita números extensos (DECIMAL), impossibilitando que um texto como 'Amarelo' seja guardado.",
+                    "D) O estagiário não errou. Cores de fachada são os identificadores oficias exigidos pelo IPHAN em bancos de dados estruturais.",
+                    "E) Porque o comando SELECT não conseguiria pesquisar casas pintadas com mais de duas cores simultaneamente."
                 ]
             },
             {
                 id: "q2", tipo: "multipla", correta: "c",
-                pergunta: "O diretor do colégio controla o histórico de 5.000 alunos usando o Excel. Ele reclama que, além da lentidão para salvar, ontem a nota de um aluno 'sumiu' porque um professor esbarrou no teclado sem querer. Qual argumento técnico definitivo você usaria sobre os '3 Motivos Vitais' de um Banco de Dados para convencê-lo a migrar?",
+                pergunta: "ESTUDO DE CASO 2: Durante o Carnaval de Muqui, a Secretaria de Cultura usa uma tabela chamada `grupos_folcloricos` para contar os pontos do desfile. O grupo 'Boi Trovão' quebrou as regras e precisava ser expulso do sistema. O programador rodou o seguinte código correndo: `DELETE FROM grupos_folcloricos;`. Qual foi a consequência administrativa dessa ação?",
                 opcoes: [
-                    "A) 'O SGBD possui um design de tela em 3D mais agradável que as células verdes do Excel, motivando os professores a errarem menos.'",
-                    "B) 'O Banco de Dados trabalha de forma unificada com a Inteligência Artificial, que prevê qual seria a nota correta do aluno caso o professor a apague.'",
-                    "C) 'Bancos de Dados entregam Velocidade máxima nas buscas, Inteligência para cruzar os dados, e o mais importante: Segurança robusta, usando restrições que impedem edições e exclusões acidentais.'",
-                    "D) 'Um Banco de Dados consome 100% da internet do colégio, tornando o acesso mais rápido para quem usa computadores fora da sala dos professores.'",
-                    "E) 'As planilhas são exclusivas para cálculos de engenharia. O Banco de Dados foi feito para colégios.'"
+                    "A) O sistema apagou a tabela inteira da memória do computador (Destruição DDL estrutural), incluindo o nome de todas as colunas.",
+                    "B) Apenas o grupo 'Boi Trovão' foi apagado, visto que o SGBD utiliza inteligência artificial para adivinhar a intenção do usuário.",
+                    "C) Ao esquecer de colocar a cláusula WHERE, o programador removeu todos os registros de TODOS os bois e grupos folclóricos da cidade de uma só vez, zerando o desfile inteiro.",
+                    "D) O comando falhou automaticamente acusando erro sintático, pois falta a cláusula ORDER BY no final da expressão.",
+                    "E) O SGBD apagou os pontos do 'Boi Trovão', mas manteve o nome do grupo na tabela."
                 ]
             },
             {
-                id: "q3", tipo: "multipla", correta: "b",
-                pergunta: "A clínica 'Sempre Saudável' definiu a coluna 'Telefone_Celular' como Chave Primária (PK) na tabela 'Pacientes', sob a justificativa de que todo mundo tem um número único. Dois anos depois, o sistema gerou um 'Bug Fatal' ao tentar cadastrar uma mãe e seu filho menor de idade na mesma recepção. Qual a explicação técnica para o Bug?",
+                id: "q3", tipo: "multipla", correta: "a",
+                pergunta: "ESTUDO DE CASO 3: A Secretaria de Turismo quer um relatório urgente das pessoas que visitaram Muqui no último festival. Eles precisam puxar os dados da tabela `turistas`. A exigência é: 'Mostre apenas os turistas que gastaram mais de R$ 500,00 na cidade, e a lista deve vir ordenada do turista mais velho para o mais novo'. Sabendo que existe uma coluna chamada 'idade', qual é o comando exato para gerar essa tela?",
                 opcoes: [
-                    "A) Telefones muito longos (com DDD) ocupam muita memória RAM, travando o SGBD permanentemente.",
-                    "B) O filho usou o mesmo número de celular da mãe no cadastro. O SGBD barrou a operação por Violação de Chave Primária (Duplicidade), pois a regra sagrada da PK exige que o dado seja absolutamente único para cada registro.",
-                    "C) A Chave Primária aceitou os dois números iguais, porém criptografou o telefone da criança, deixando-o inacessível para o médico.",
-                    "D) Chaves Primárias aceitam apenas sequências numéricas curtas e com Letras (códigos hexadecimais de 16 dígitos).",
-                    "E) O SQL só permite o uso de colunas 'VARCHAR' como chaves primárias, impedindo telefones numéricos."
+                    "A) SELECT * FROM turistas WHERE gasto > 500 ORDER BY idade DESC;",
+                    "B) SELECT * FROM turistas WHERE gasto > 500 ORDER BY idade ASC;",
+                    "C) SELECT * FROM turistas WHERE gasto = 500 ORDER BY idade DESC;",
+                    "D) SELECT turistas FROM gasto WHERE gasto > 500 ORDER BY idade;",
+                    "E) SELECT * FROM turistas WHERE gasto > 500 AND idade = DESC;"
                 ]
             },
             {
-                id: "q4", tipo: "multipla", correta: "b",
-                pergunta: "O administrador de RH de uma startup te chamou às pressas. Ele tentou rodar o seguinte comando: `INSERT INTO equipe (id, nome, setor) VALUES (15, 'João', 'Financeiro', 4500.00);`. O SGBD devolveu o erro: *'Column count doesn't match value count'*. Consultando seu caderno, qual foi o vacilo sintático dele?",
-                opcoes: [
-                    "A) O administrador tentou colocar um nome de funcionário ('João') onde deveria haver obrigatoriamente um valor lógico (Verdadeiro/Falso).",
-                    "B) Ele declarou apenas 3 colunas-alvo nos parênteses (id, nome, setor), mas tentou empurrar 4 valores na sequência final (incluindo o salário 4500.00). O SQL é rígido e exige correspondência exata de tamanho.",
-                    "C) O comando INSERT não suporta casas decimais (como .00). O administrador deveria ter arredondado o salário para 4500 puro.",
-                    "D) A palavra 'Financeiro' contém acentos invisíveis ao sistema e causou quebra no comando de entrada de dados DML.",
-                    "E) Ele deveria ter usado o comando UPDATE para inserir o primeiro registro na tabela, e não o INSERT INTO."
-                ]
-            },
-            {
-                id: "q5", tipo: "multipla", correta: "d",
-                pergunta: "Fim de ano na Loja Geek! O gerente estipulou uma queima de estoque: 'Liste para mim os produtos que são da categoria Mangá e que custem menos de R$ 20,00, OU traga também qualquer produto da marca Panini (independente de quanto custar).' Qual comando abaixo o SGBD vai respeitar com a precedência matemática correta?",
-                opcoes: [
-                    "A) SELECT * FROM loja WHERE categoria = 'Mangá' AND preco < 20 AND marca = 'Panini';",
-                    "B) SELECT * FROM loja WHERE categoria = 'Mangá' OR preco < 20 AND marca = 'Panini';",
-                    "C) SELECT * FROM loja WHERE categoria IN ('Mangá', 'Panini') AND preco < 20;",
-                    "D) SELECT * FROM loja WHERE (categoria = 'Mangá' AND preco < 20) OR (marca = 'Panini');",
-                    "E) SELECT * FROM loja WHERE categoria = 'Mangá', preco < 20 OR 'Panini';"
-                ]
-            },
-            {
-                id: "q6", tipo: "multipla", correta: "b",
-                pergunta: "Sexta-feira, 17:59h. O analista júnior recebe a tarefa de zerar a dívida do cliente de ID 15. Cansado, ele digita e executa correndo: `UPDATE clientes SET divida = 0;`. Satisfeito, ele desliga o notebook. Qual foi a catástrofe que ele cometeu nos dados financeiros da empresa?",
-                opcoes: [
-                    "A) O comando apresentou erro de sintaxe imediato e nada foi alterado, o SGBD bloqueou automaticamente a ação do analista.",
-                    "B) Ele violou a 'Regra de Ouro' ao omitir a restrição WHERE. Como punição sistêmica, o SGBD obedeceu à ordem de forma literal e varreu a tabela inteira, zerando a dívida de absolutamente TODOS os clientes cadastrados de uma vez só.",
-                    "C) A dívida do cliente número 1 foi apagada por padrão, visto que o SGBD escolhe sempre a primeira linha caso não haja um WHERE especificado.",
-                    "D) O banco de dados interpretou o valor '0' como uma invasão hacker e deletou toda a tabela de clientes.",
-                    "E) Os dados não sofreram mudanças, pois o UPDATE altera a estrutura (as colunas) e não o conteúdo que fica dentro das linhas."
-                ]
-            },
-            {
-                id: "q7", tipo: "multipla", correta: "c",
-                pergunta: "Na mesma Livraria Geek, um cliente te perguntou no balcão se vocês possuíam livros que tinham a palavra 'Dragão' no nome. Ele disse que podia ser 'O Dragão de Gelo', 'A Dança dos Dragões' ou só 'Dragão'. Como o SGBD deve caçar esses textos variados com eficiência?",
-                opcoes: [
-                    "A) Usando `WHERE titulo = 'Dragão'` para forçar a matemática exata.",
-                    "B) Usando `WHERE titulo LIKE 'Dragão%'` para pegar textos apenas quando a palavra estiver escondida no final do título.",
-                    "C) Usando `WHERE titulo LIKE '%Dragão%'` para que o caractere coringa (%) libere a busca em qualquer lugar da frase (início, meio ou fim).",
-                    "D) Usando o comando `WHERE titulo FILTER _Dragão_` com as aspas normais.",
-                    "E) O banco de dados não consegue buscar frases que ele não saiba de cor o texto completo."
-                ]
-            },
-            {
-                id: "q8", tipo: "multipla", correta: "c",
-                pergunta: "Uma tabela de 'Provas' contém 5 linhas de alunos. As notas gravadas são: 10, 8, NULL (O aluno faltou a prova), 6, NULL. O coordenador executa curiosamente o comando de agregação: `SELECT AVG(nota) FROM provas;`. Como o SGBD vai calcular essa Média (AVG)?",
-                opcoes: [
-                    "A) Retornará um erro crítico e fará o sistema travar, visto que operações matemáticas são estritamente proibidas quando se há células NULAS.",
-                    "B) Ele somará todas as notas válidas (10+8+6 = 24) e dividirá por 5 (quantidade total de linhas), resultando numa média baixa de 4,8.",
-                    "C) O sistema vai ignorar as células NULL sumariamente. Ele somará apenas as notas existentes (10+8+6 = 24) e dividirá por 3, resultando na média matemática de 8,0.",
-                    "D) O banco fará a substituição de todos os valores nulos por '0', e em seguida apagará o aluno do sistema por reprovação.",
-                    "E) O comando AVG retornará 'NULL', já que a presença de um único NULO contamina o cálculo inteiro de ponta a ponta."
-                ]
-            },
-            {
-                id: "q9", tipo: "multipla", correta: "b",
-                pergunta: "Sobre as Grandes Famílias do SQL (DDL, DML e DQL), analise friamente as duas afirmações teóricas abaixo:\n\nI. O comando `ALTER TABLE` é um membro da família DML, visto que sua função é manipular e alterar os dados que estão gravados na tabela do banco.\nII. O famoso comando `SELECT` é um membro pacífico da família DQL. Sua única função é extrair, ler e projetar informações de forma visual na tela, sendo incapaz de modificar, estragar ou deletar qualquer registro do banco de dados.\n\nCom base em sua análise, assinale a única alternativa técnica:",
-                opcoes: [
-                    "A) A Afirmação I é verdadeira e a II é falsa.",
-                    "B) A Afirmação I é falsa (O ALTER pertence ao DDL estrutural) e a Afirmação II é totalmente verdadeira.",
-                    "C) Ambas as afirmações são irrefutavelmente verdadeiras.",
-                    "D) Ambas as afirmações são falsas dentro da estrutura lógica de programação.",
-                    "E) O SELECT pertence à família DDL, tornando a afirmação II incorreta."
-                ]
-            },
-            {
-                id: "q10", tipo: "multipla", correta: "a",
-                pergunta: "Relembrando a metáfora inicial da Despensa Digital (Banco de Dados Organizado) vs O Quarto Bagunçado (Planilhas e blocos de anotação soltos). Analise as afirmações e identifique o comportamento real do SGBD:\n\nI. Uma 'Tabela' (Entidade) pode ser vista como uma prateleira ou gaveta padronizada. Cada 'Linha' (Registro) guardada lá dentro obedece estritamente aos mesmos rótulos e etiquetas de 'Colunas' (Atributos).\nII. Assim como em um arquivo do Word livre, o Banco de Dados oferece a flexibilidade máxima de misturar tipos de dados. Por exemplo: Em uma coluna de 'Idade' (Int), você pode inserir o texto 'Vinte Anos' sem que o banco gere qualquer erro ou travamento.\n\nQual alternativa descreve o comportamento real estudado em aula?",
-                opcoes: [
-                    "A) A Afirmação I é verdadeira (organização estrita) e a II é falsa (Banco de Dados bloqueia erros de tipagem e não aceita textos em colunas INT).",
-                    "B) A Afirmação I é falsa, pois tabelas mudam as colunas dependendo do dia da semana. A II é verdadeira.",
-                    "C) Ambas as afirmações definem perfeitamente o poder flexível de um SGBD.",
-                    "D) Ambas as afirmações são consideradas práticas proibidas na gestão de dados.",
-                    "E) A flexibilidade citada na Afirmação II só funciona se o banco for acessado usando a cláusula WHERE."
-                ]
-            },
-            {
-                id: "q11", tipo: "multipla", correta: "c",
-                pergunta: "Sobre a construção de Queries (buscas) e a organização de resultados em SQL, julgue a veracidade das afirmações que foram praticadas no laboratório online:\n\nI. O comando `ORDER BY DESC`, quando exigido na sintaxe de um relatório, deve obrigatoriamente ser colocado no final absoluto da linha de código. Isso garante que o SGBD busque e filtre tudo primeiro, para apenas na etapa final classificar tudo do maior valor para o menor valor.\nII. No comando `SELECT * FROM funcionarios`, o asterisco (*) atua como um atalho mundial do SQL que informa à máquina: 'Traga e mostre TODAS as colunas existentes da tabela para mim'.\n\nAssinale o item apropriado:",
-                opcoes: [
-                    "A) A Afirmação I é a única verdadeira, visto que o asterisco (*) apaga os registros da tela.",
-                    "B) A Afirmação II é a única verdadeira, pois o ORDER BY sempre deve iniciar no topo do arquivo.",
-                    "C) Ambas as afirmações são tecnicamente verdadeiras e descrevem perfeitamente comportamentos nativos da linguagem SQL.",
-                    "D) Ambas as afirmações descrevem práticas consideradas falhas de vulnerabilidade pelos especialistas (Hackers).",
-                    "E) O operador DESC ordena tudo em ordem alfabética de A para Z apenas."
-                ]
-            },
-            {
-                id: "q12", tipo: "associacao",
-                pergunta: "ASSOCIAÇÃO TÉCNICA: Tipos Práticos de Dados",
-                instrucao: "Você foi contratado para modelar o novo banco de dados escolar. Analise o cenário de cada coluna a ser criada e escolha o Tipo de Dado (Data Type) mais eficiente, focando em otimização de memória e restrições.",
+                id: "q4", tipo: "associacao",
+                pergunta: "ESTUDO DE CASO 4: Tipagem de Dados no Município",
+                instrucao: "Você é o responsável por montar as colunas de uma nova tabela chamada `boi_pintadinho`. Analise o que será guardado em cada coluna e associe o Tipo de Dado (Data Type) mais otimizado e correto para não desperdiçar memória no servidor da prefeitura.",
                 termos: [
-                    { value: "varchar", label: "VARCHAR (Texto Flexível)" },
-                    { value: "int", label: "INT (Numérico sem vírgula)" },
-                    { value: "decimal", label: "DECIMAL(10,2) (Moeda/Notas)" },
-                    { value: "date", label: "DATE (Calendário Oficial)" },
-                    { value: "text", label: "TEXT (Documentos Extensos)" }
+                    { value: "varchar", label: "VARCHAR" },
+                    { value: "int", label: "INT" },
+                    { value: "decimal", label: "DECIMAL(10,2)" },
+                    { value: "date", label: "DATE" },
+                    { value: "text", label: "TEXT" }
                 ],
                 lacunas: [
-                    { id: "lac0", texto: "Armazenar a Nota Final do Trimestre de um Aluno (Ex: 8.50)." },
-                    { id: "lac1", texto: "Armazenar apenas o número correspondente à idade atual do estudante (Ex: 16)." },
-                    { id: "lac2", texto: "Armazenar um laudo médico gigante da pedagogia, ocupando mais de 5 mil caracteres de observações na ficha do aluno." },
-                    { id: "lac3", texto: "Armazenar o Nome da Rua e Bairro do estudante. (Ex: Rua Sete, Praia de Capuba)." },
-                    { id: "lac4", texto: "Armazenar o dia exato da matrícula, forçando o padrão de calendário do SGBD (Ano-Mês-Dia)." }
+                    { id: "lac0", texto: "O nome completo do Boi Pintadinho (Ex: 'Boi Jaguão')." },
+                    { id: "lac1", texto: "O valor em dinheiro (verba) que a prefeitura repassou ao grupo (Ex: R$ 1.500,50)." },
+                    { id: "lac2", texto: "O dia, mês e ano exatos em que o grupo foi fundado em Muqui." },
+                    { id: "lac3", texto: "A quantidade de músicos e ritmistas da bateria (Ex: 15 pessoas)." },
+                    { id: "lac4", texto: "Um documento histórico gigante com a biografia completa de todas as gerações do Boi, ocupando páginas e páginas." }
                 ],
-                corretas: { "lac0": "decimal", "lac1": "int", "lac2": "text", "lac3": "varchar", "lac4": "date" }
+                corretas: { "lac0": "varchar", "lac1": "decimal", "lac2": "date", "lac3": "int", "lac4": "text" }
             },
             {
-                id: "q13", tipo: "associacao",
-                pergunta: "ASSOCIAÇÃO ARQUITETURAL: Ecossistema SQL",
-                instrucao: "Associe corretamente cada peça e camada do ecossistema estudado à sua função mecânica nos bastidores do servidor:",
-                termos: [
-                    { value: "sgbd", label: "SGBD (O 'Motor/Cérebro')" },
-                    { value: "dql", label: "Família DQL (Apenas Consulta)" },
-                    { value: "ddl", label: "Família DDL (O Arquiteto Estrutural)" },
-                    { value: "dml", label: "Família DML (O Manipulador Diário)" },
-                    { value: "where", label: "Cláusula WHERE (O Escudo/Filtro)" }
-                ],
-                lacunas: [
-                    { id: "lac0", texto: "O Software complexo que instalamos na máquina para governar todos os dados, garantindo as regras de segurança e velocidade (Ex: PostgreSQL, SQL Server)." },
-                    { id: "lac1", texto: "O conjunto de comandos focados estritamente na construção ou destruição da base/blueprint das tabelas (Usando CREATE, DROP, ALTER)." },
-                    { id: "lac2", texto: "A família de comandos operacionais que os funcionários usam o dia todo para povoar linhas, modificar ou apagar informações do comércio (INSERT, UPDATE)." },
-                    { id: "lac3", texto: "A família totalmente inofensiva e voltada para a geração de relatórios inteligentes em tela (Representada pelo SELECT)." },
-                    { id: "lac4", texto: "A trava de proteção lógica. Sem usá-la, um programador desatento destrói uma tabela inteira de forma catastrófica." }
-                ],
-                corretas: { "lac0": "sgbd", "lac1": "ddl", "lac2": "dml", "lac3": "dql", "lac4": "where" }
-            },
-            {
-                id: "q14", tipo: "discursiva",
-                pergunta: "MISSÃO DISCURSIVA E PRÁTICA:",
-                instrucao: "Cenário de Consultoria: A sua escola está organizando um Torneio de E-Sports. O sistema de controle interno quebrou e você é o único programador disponível na sala para mexer no banco de dados, que já possui a tabela física criada: `jogadores` (com as colunas: `id`, `nickname`, `pontuacao`, `status`).\n\nEscreva os comandos em linguagem SQL nativa (ou explique a arquitetura e nomes técnicos de forma extremamente detalhada) para executar com precisão os 3 requisitos solicitados pelo grêmio estudantil hoje:\n\n1) Cadastro Urgente: Insira você mesmo no torneio com seu nickname (nome), começando com a pontuação 500.\n2) Punição e Atualização: O jogador de ID Número 3 trapaceou na partida. Escreva o comando cirúrgico para atualizar a pontuação DELE e somente DELE para 0.\n3) Visão de Liderança (Relatório): A direção pediu a você para buscar e exibir a tabela inteira, mas mostrando os registros classificados do jogador com a maior pontuação para o jogador com a menor pontuação. Quais comandos geram esse ranking de topo?",
-                dica: "DICA DE OURO: Estruture o pensamento. Requisito 1 clama por um INSERT. Requisito 2 clama por um UPDATE atrelado ao WHERE. Requisito 3 clama por um SELECT acoplado ao ORDER BY de forma decrescente."
+                id: "q5", tipo: "discursiva",
+                pergunta: "MISSÃO PRÁTICA: Gestão Hospitalar",
+                instrucao: "Cenário Crítico: Você foi contratado como Analista de Dados do Hospital Maternidade Aluísio Filgueiras (Muqui-ES). A sua responsabilidade é operar a tabela `leitos` (que contém as colunas: id_leito, numero_quarto, status_ocupacao, nome_paciente). Leia os requisitos médicos abaixo e escreva a lógica SQL nativa para executar as ações:\n\n1. O paciente do leito ID número 5 acabou de receber alta médica. Escreva o comando cirúrgico para atualizar (modificar) o 'status_ocupacao' DELE para 'Livre'.\n2. Explique com as suas palavras: O que aconteceria no sistema do hospital se você esquecesse de usar a cláusula restritiva nesse comando que acabou de criar no item 1?",
+                dica: "DICA: O comando para modificar informações já gravadas na tabela pertence à família DML e começa com a letra 'U'. A cláusula que protege a operação começa com a letra 'W'."
             }
         ];
 
@@ -695,7 +585,6 @@
             let apiKey = ""; 
             let endpointUrl = ""; 
             
-            // Verifica se está rodando fora do Canvas (ex: GitHub Pages)
             if (typeof __app_id === 'undefined') {
                 const storedKey = sessionStorage.getItem("gemini_api_key");
                 if (storedKey) {
@@ -711,19 +600,17 @@
                 }
 
                 // --- AUTO-DISCOVERY DE MODELOS ---
-                // Busca a lista de modelos permitidos para esta chave para evitar erro 404
                 const listUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
                 try {
                     const listRes = await fetch(listUrl);
                     if (!listRes.ok) {
                         if (listRes.status === 400 || listRes.status === 403) {
-                            sessionStorage.removeItem("gemini_api_key"); // Chave inválida, limpa o cache
+                            sessionStorage.removeItem("gemini_api_key");
                         }
                         throw new Error("Chave de API inválida ou sem permissão de acesso.");
                     }
                     const listData = await listRes.json();
                     
-                    // Filtra modelos que suportam geração de texto e são da família Gemini
                     const validModels = listData.models.filter(m => 
                         m.supportedGenerationMethods && 
                         m.supportedGenerationMethods.includes("generateContent") &&
@@ -732,20 +619,16 @@
 
                     if (validModels.length === 0) throw new Error("Nenhum modelo compatível com texto encontrado para esta chave.");
 
-                    // Prefere o 1.5-flash, depois 1.5-pro, depois qualquer um válido
                     const bestModel = validModels.find(m => m.name.includes("1.5-flash")) || 
                                       validModels.find(m => m.name.includes("1.5-pro")) || 
                                       validModels[0];
 
-                    // O bestModel.name já vem no formato "models/nome-do-modelo"
                     endpointUrl = `https://generativelanguage.googleapis.com/v1beta/${bestModel.name}:generateContent?key=${apiKey}`;
-                    console.log("IA Modelo selecionado automaticamente:", bestModel.name);
                     
                 } catch (err) {
                     throw new Error("Falha ao configurar a IA: " + err.message);
                 }
             } else {
-                // Ambiente interno de testes do Canvas
                 endpointUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             }
 
@@ -776,9 +659,9 @@
 
         // --- FUNÇÃO AUXILIAR DA IA (Usada em correções únicas ou em lote) ---
         async function avaliarRespostaComIA(respostaDiscursiva, nomeAluno) {
-            const prompt = `A questão era:\n1) Inserir um novo jogador no torneio (Exige comando INSERT INTO ou explicação dessa lógica).\n2) Atualizar o jogador de ID 3 para 0 pontos (Exige comando UPDATE associado obrigatoriamente a um WHERE id=3).\n3) Mostrar a tabela inteira classificada do maior para o menor (Exige comando SELECT * associado a um ORDER BY DESC).\n\nA resposta do aluno (${nomeAluno}) foi:\n"${respostaDiscursiva}"`;
+            const prompt = `A questão de recuperação (Contexto: Hospital em Muqui) era:\n1. O paciente do leito ID número 5 acabou de receber alta médica. Escreva o comando cirúrgico para atualizar (modificar) o 'status_ocupacao' DELE para 'Livre'.\n2. Explique com as suas palavras: O que aconteceria no sistema do hospital se você esquecesse de usar a cláusula restritiva (WHERE) nesse comando de atualização?\n\nA resposta do aluno (${nomeAluno}) foi:\n"${respostaDiscursiva}"`;
 
-            const systemInstructionText = `Você é o professor avaliador de banco de dados da turma, falando diretamente com seu aluno na 1ª pessoa do singular. A sua tarefa é corrigir a resposta do aluno para uma questão que vale de 0 a 3.0 pontos. Considere acertos parciais. Dê notas fracionadas (ex: 1.0, 1.5, 2.0). Zere a nota apenas se o aluno deixou em branco ou fugiu totalmente do tema.\n\nREGRAS DE FEEDBACK VISUAL E TOM DE VOZ:\n- Inicie SEMPRE o texto exatamente com 'Olá, ${nomeAluno}.'\n- O seu tom deve ser MUITO LEVE, POSITIVO E EMPÁTICO. Eles são alunos iniciantes do ensino médio. NUNCA use palavras duras.\n- SEPARE O TEXTO EM TÓPICOS usando quebras de linha duplas (\\n\\n).\n- Estruture o feedback usando os seguintes tópicos textuais:\n  * 'Rúbrica de Correção:': Detalhe a pontuação obtida em cada critério esperado da questão, justificando a nota final.\n  * 'Pontos Fortes:'\n  * 'Oportunidades de Melhoria:'\n- NÃO USE EMOJIS.\n- NUNCA use frases de "atendimento" como 'estou aqui para ajudar'.\n- Finalize sempre com uma breve afirmação de incentivo focada no esforço.`;
+            const systemInstructionText = `Você é o professor avaliador de banco de dados da turma, falando diretamente com seu aluno na 1ª pessoa do singular. A sua tarefa é corrigir a resposta do aluno para uma questão discursiva que vale de 0 a 6.0 pontos. Considere acertos parciais. Dê notas fracionadas. Zere a nota apenas se o aluno deixou em branco ou fugiu totalmente do tema.\n\nREGRAS DE FEEDBACK VISUAL E TOM DE VOZ:\n- Inicie SEMPRE o texto exatamente com 'Olá, ${nomeAluno}.'\n- O seu tom deve ser MUITO LEVE, POSITIVO E EMPÁTICO. Eles são alunos iniciantes do ensino médio em recuperação. NUNCA use palavras duras.\n- SEPARE O TEXTO EM TÓPICOS usando quebras de linha duplas (\\n\\n).\n- Estruture o feedback usando EXATAMENTE os seguintes tópicos textuais:\n  * 'Rúbrica de Correção:': Detalhe a pontuação obtida em cada critério esperado da questão (A query UPDATE e a explicação da falta do WHERE), justificando a nota final.\n  * 'Pontos Fortes:'\n  * 'Oportunidades de Melhoria:'\n- NÃO USE EMOJIS.\n- NUNCA use frases de "atendimento" como 'estou aqui para ajudar' ou 'se precisar me chame'.\n- Finalize sempre com uma breve afirmação de incentivo focada no esforço em um novo parágrafo.`;
 
             const payload = {
                 systemInstruction: {
@@ -790,8 +673,8 @@
                     responseSchema: {
                         type: "OBJECT",
                         properties: {
-                            nota: { type: "NUMBER", description: "Nota decimal de 0.0 a 3.0" },
-                            feedback: { type: "STRING", description: "Feedback construtivo e objetivo para o aluno" }
+                            nota: { type: "NUMBER", description: "Nota decimal de 0.0 a 6.0" },
+                            feedback: { type: "STRING", description: "Feedback construtivo, empático e com rúbrica justificada para o aluno" }
                         },
                         required: ["nota", "feedback"]
                     }
@@ -807,7 +690,6 @@
             
             const parsed = JSON.parse(resultText);
             
-            // Validação rigorosa para evitar apagar a nota acidentalmente se a IA falhar
             if (typeof parsed.nota !== 'number' || !parsed.feedback || parsed.feedback.trim() === "") {
                 throw new Error("A IA devolveu dados incompletos ou em branco.");
             }
@@ -848,7 +730,7 @@
                 rotearUsuario();
             } catch (e) { 
                 mostrarAlerta("Erro de Ligação", "Não foi possível contactar o servidor. Tente novamente.", "🔌");
-                ui.btnLogin.innerHTML = `Aceder ao Ambiente <span>🚀</span>`; 
+                ui.btnLogin.innerHTML = `Aceder ao Ambiente de Recuperação <span>🚀</span>`; 
             }
         };
 
@@ -873,17 +755,17 @@
                         document.getElementById('btn-ver-prova-corrigida').onclick = () => renderizarProvaRevisao(data, false);
                     }
                 } else {
-                    mostrarAlerta("Avaliação Concluída", "Já entregou esta avaliação. As suas respostas estão guardadas em segurança na base de dados da escola. Aguarde que o professor corrija a discursiva e liberte o acesso aos resultados oficiais.", "✅");
+                    mostrarAlerta("Avaliação Concluída", "Já entregou esta recuperação. As suas respostas estão guardadas em segurança na base de dados da escola. Aguarde a correção.", "✅");
                     ui.login.style.display = 'flex';
-                    ui.btnLogin.innerHTML = `Aceder ao Ambiente <span>🚀</span>`; 
+                    ui.btnLogin.innerHTML = `Aceder ao Ambiente de Recuperação <span>🚀</span>`; 
                 }
                 return;
             }
 
             if (globalStatus === "fechado") { 
-                mostrarAlerta("Acesso Restrito", "A avaliação de Banco de Dados encontra-se FECHADA de forma sistémica no momento. Aguarde pelas instruções na sala de aula e a libertação de acesso global pelo professor responsável.", "🔒");
+                mostrarAlerta("Acesso Restrito", "A avaliação de recuperação encontra-se FECHADA no momento. Aguarde a libertação de acesso pelo professor responsável.", "🔒");
                 ui.login.style.display = 'flex';
-                ui.btnLogin.innerHTML = `Aceder ao Ambiente <span>🚀</span>`; 
+                ui.btnLogin.innerHTML = `Aceder ao Ambiente de Recuperação <span>🚀</span>`; 
                 return; 
             }
 
@@ -920,39 +802,40 @@
                 const hidden = idx === 0 ? "" : "hidden";
                 
                 let pontuacao = "";
-                if (idx < 12) pontuacao = "0,75 Pt";
-                else if (idx === 12) pontuacao = "2,0 Pts";
-                else if (idx === 13) pontuacao = "3,0 Pts";
+                if (q.id === "q1") pontuacao = "1,0 Pt";
+                else if (q.id === "q2" || q.id === "q3") pontuacao = "1,5 Pts";
+                else if (q.id === "q4") pontuacao = "4,0 Pts";
+                else if (q.id === "q5") pontuacao = "6,0 Pts";
 
-                const badgePontos = `<span class="inline-block bg-blue-100 text-blue-800 text-[10px] md:text-[11px] font-black uppercase tracking-widest px-3 py-1 rounded-full ml-2 md:ml-3 align-middle shadow-sm border border-blue-200 mt-1 md:mt-0">Valendo ${pontuacao}</span>`;
+                const badgePontos = `<span class="inline-block bg-red-100 text-red-800 text-[9px] md:text-[10px] font-black uppercase tracking-widest px-2 md:px-3 py-1 rounded-full ml-2 md:ml-3 align-middle shadow-sm border border-red-200 mt-1 md:mt-0">Valendo ${pontuacao}</span>`;
                 
                 html += `<div id="slide-${idx}" class="slide-question ${hidden} slide-fade min-h-[50vh] md:min-h-[60vh]">`;
                 
                 if(q.tipo === "multipla") {
-                    html += `<p class="font-black text-xl md:text-2xl text-gray-800 mb-4 md:mb-6 leading-relaxed text-justify"><span class="text-blue-600 mr-2">Q${idx+1}.</span> ${q.pergunta} ${badgePontos}</p>`;
+                    html += `<p class="font-black text-xl md:text-2xl text-gray-800 mb-4 md:mb-6 leading-relaxed text-justify"><span class="text-red-600 mr-2">Q${idx+1}.</span> ${q.pergunta} ${badgePontos}</p>`;
                     html += `<div class="space-y-3 md:space-y-4">`;
                     q.opcoes.forEach((op, i) => {
                         const v = String.fromCharCode(97 + i);
                         html += `
                             <label class="relative block cursor-pointer group">
                                 <input type="radio" name="${q.id}" value="${v}" class="peer sr-only radio-custom">
-                                <div class="p-3 md:p-4 border-2 border-gray-200 rounded-xl md:rounded-2xl bg-white transition-all group-hover:border-blue-300 flex items-center gap-3 md:gap-4">
+                                <div class="p-3 md:p-4 border-2 border-gray-200 rounded-xl md:rounded-2xl bg-white transition-all group-hover:border-red-300 flex items-center gap-3 md:gap-4">
                                     <div class="radio-indicator w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-gray-300 flex items-center justify-center transition-colors relative flex-shrink-0">
                                         <div class="w-2.5 h-2.5 md:w-3 md:h-3 bg-white rounded-full opacity-0 transform scale-0 transition-all duration-200 absolute"></div>
                                     </div>
-                                    <span class="text-sm md:text-base text-gray-700 font-bold group-hover:text-blue-700 peer-checked:text-blue-800 text-justify leading-relaxed">${op}</span>
+                                    <span class="text-sm md:text-base text-gray-700 font-bold group-hover:text-red-700 peer-checked:text-red-800 text-justify leading-relaxed">${op}</span>
                                 </div>
                             </label>
                         `;
                     });
                     html += `</div>`;
                 } else if(q.tipo === "associacao") {
-                    html += `<p class="font-black text-xl md:text-2xl mb-3 md:mb-4 text-justify"><span class="text-blue-600 mr-2">Q${idx+1}.</span> ${q.pergunta} ${badgePontos}</p>`;
+                    html += `<p class="font-black text-xl md:text-2xl mb-3 md:mb-4 text-justify"><span class="text-red-600 mr-2">Q${idx+1}.</span> ${q.pergunta} ${badgePontos}</p>`;
                     html += `<p class="text-xs md:text-sm text-gray-500 mb-4 md:mb-6 font-bold italic text-justify leading-relaxed">${q.instrucao}</p>`;
                     html += `<div class="grid gap-4 md:gap-6">`;
                     q.lacunas.forEach((l, i) => {
                         html += `
-                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl md:rounded-2xl border-2 border-gray-100 shadow-sm transition hover:shadow-md hover:border-blue-100">
+                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl md:rounded-2xl border-2 border-gray-100 shadow-sm transition hover:shadow-md hover:border-red-100">
                                 <p class="mb-3 md:mb-4 text-sm md:text-base text-gray-800 font-bold text-justify leading-relaxed">${l.texto}</p>
                                 <select name="${q.id}_lacuna${i}" class="select-associacao shadow-sm text-sm md:text-base">
                                     <option value="">-- Clique aqui e selecione o correspondente --</option>
@@ -963,10 +846,10 @@
                     });
                     html += `</div>`;
                 } else if(q.tipo === "discursiva") {
-                    html += `<p class="font-black text-xl md:text-2xl mb-3 md:mb-4 text-justify"><span class="text-blue-600 mr-2">Q${idx+1}.</span> ${q.pergunta} ${badgePontos}</p>`;
+                    html += `<p class="font-black text-xl md:text-2xl mb-3 md:mb-4 text-justify"><span class="text-red-600 mr-2">Q${idx+1}.</span> ${q.pergunta} ${badgePontos}</p>`;
                     html += `<p class="text-sm md:text-base text-gray-700 mb-4 md:mb-6 leading-relaxed font-medium text-justify">${q.instrucao}</p>`;
-                    html += `<div class="bg-blue-900 p-4 md:p-6 rounded-xl md:rounded-2xl text-blue-100 font-mono text-xs md:text-sm mb-4 md:mb-6 shadow-inner border-l-8 border-blue-400 text-justify leading-relaxed">💡 ${q.dica}</div>`;
-                    html += `<textarea name="${q.id}" rows="6" class="w-full p-4 md:p-6 border-2 border-gray-200 rounded-xl md:rounded-3xl font-mono text-xs md:text-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition shadow-sm resize-none" placeholder="Construa e rascunhe a sua lógica de código SQL aqui..."></textarea>`;
+                    html += `<div class="bg-red-900 p-4 md:p-6 rounded-xl md:rounded-2xl text-red-100 font-mono text-xs md:text-sm mb-4 md:mb-6 shadow-inner border-l-8 border-red-400 text-justify leading-relaxed">💡 ${q.dica}</div>`;
+                    html += `<textarea name="${q.id}" rows="6" class="w-full p-4 md:p-6 border-2 border-gray-200 rounded-xl md:rounded-3xl font-mono text-xs md:text-sm focus:border-red-500 focus:ring-4 focus:ring-red-100 outline-none transition shadow-sm resize-none" placeholder="Construa e rascunhe a sua lógica de código SQL aqui..."></textarea>`;
                 }
                 html += `</div>`;
             });
@@ -1034,7 +917,11 @@
                     const acertou = respAluno === q.correta;
                     
                     if(acertou) {
-                        nAuto += 0.75; 
+                        if (q.id === "q1") {
+                            nAuto += 1.0;
+                        } else if (q.id === "q2" || q.id === "q3") {
+                            nAuto += 1.5; 
+                        }
                     }
                     
                     const icone = acertou ? "✅ ACERTOU" : "❌ ERROU";
@@ -1049,8 +936,7 @@
                         const hit = respAluno === correta;
                         
                         if(hit) {
-                            if (q.id === "q12") nAsc += 0.15; 
-                            else if (q.id === "q13") nAsc += 0.40; 
+                            nAsc += 0.80; // 5 * 0.80 = 4.0 pts
                         }
                         
                         const icone = hit ? "✅" : "❌";
@@ -1074,7 +960,7 @@
                 nome: alunoLogado.nome,
                 nota_total: (nAuto + nAsc).toFixed(2),
                 relatorio_respostas: relatorio,
-                resposta_discursiva: fd.get("q14") || "Em branco ou não respondeu." 
+                resposta_discursiva: fd.get("q5") || "Em branco ou não respondeu." 
             };
 
             fetch(googleSheetsUrl, {
@@ -1213,11 +1099,11 @@
                                     <span class="text-[8px] md:text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded bg-gray-100 border ${corrigida?'text-green-600 border-green-200':'text-yellow-600 border-yellow-200'}">
                                         ${corrigida?'✓ Corrigida':'⏳ Aguardar Correção'}
                                     </span>
-                                    <span class="text-xs md:text-sm font-bold text-gray-600">Nota: <span class="text-blue-700">${total}</span> / 14.0</span>
+                                    <span class="text-xs md:text-sm font-bold text-gray-600">Nota: <span class="text-red-700">${total}</span> / 14.0</span>
                                 </div>
                             </div>
                             <div class="flex gap-2 md:gap-3">
-                                <button onclick="window.abrirCorrecao('${data.alunoId}')" class="flex-1 md:flex-none bg-blue-50 text-blue-700 px-4 md:px-5 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-black hover:bg-blue-600 hover:text-white transition shadow-sm border border-blue-200 hover:border-transparent">Revisar / Corrigir</button>
+                                <button onclick="window.abrirCorrecao('${data.alunoId}')" class="flex-1 md:flex-none bg-red-50 text-red-700 px-4 md:px-5 py-2 md:py-2.5 rounded-lg md:rounded-xl text-xs md:text-sm font-black hover:bg-red-600 hover:text-white transition shadow-sm border border-red-200 hover:border-transparent">Revisar / Corrigir</button>
                             </div>
                         </div>
                     `;
@@ -1225,53 +1111,37 @@
             });
             container.innerHTML = html || `
                 <div class="bg-white p-6 md:p-10 rounded-xl md:rounded-2xl border border-gray-200 text-center text-sm md:text-base text-gray-500 font-bold shadow-sm">
-                    📭 Nenhuma prova foi entregue até ao momento.
+                    📭 Nenhuma prova de recuperação foi entregue até ao momento.
                 </div>`;
         }
 
         // --- FUNÇÃO BATCH PARA CORRIGIR COM IA ---
         document.getElementById('btn-prof-corrigir-todos').onclick = async () => {
             const snap = await getDocs(collection(db, 'artifacts', appIdStr, 'public', 'data', 'exames'));
-            
-            const apenasPendentes = confirm("Deseja corrigir APENAS as provas pendentes?\n\n[OK] - Corrigir apenas quem ainda não tem nota e feedback.\n[Cancelar] - Opção para corrigir TODAS as provas.");
-            
             let examsToCorrect = [];
             
-            if (apenasPendentes) {
-                snap.forEach(d => {
-                    const data = d.data();
-                    // Considera como pendente se a nota for undefined ou se o feedback for vazio/nulo
-                    const semCorrecaoValida = data.notaDiscursiva === undefined || !data.feedbackProfessor || data.feedbackProfessor.trim() === "";
-                    if(data.finalizado && semCorrecaoValida) {
-                        examsToCorrect.push({docId: d.id, ...data});
-                    }
-                });
-            } else {
-                const corrigirTodas = confirm("CUIDADO: Deseja reavaliar TODAS as provas entregues?\n\nIsso irá sobrescrever TODAS as notas discursivas e feedbacks já gravados!\n\n[OK] - Sim, reavaliar TODAS.\n[Cancelar] - Abortar operação.");
-                if (!corrigirTodas) return;
-                
-                snap.forEach(d => {
-                    const data = d.data();
-                    if(data.finalizado) {
-                        examsToCorrect.push({docId: d.id, ...data});
-                    }
-                });
-            }
+            snap.forEach(d => {
+                const data = d.data();
+                if(data.finalizado) {
+                    examsToCorrect.push({docId: d.id, ...data});
+                }
+            });
 
             if(examsToCorrect.length === 0) {
-                mostrarAlerta("Tudo Certo!", "Não há provas disponíveis para correção com esse critério no momento.", "✅");
+                mostrarAlerta("Tudo Certo!", "Não há provas entregues para corrigir no momento.", "✅");
                 return;
             }
+
+            const isConfirmed = confirm(`Atenção: Existem ${examsToCorrect.length} provas entregues.\n\nO sistema vai corrigir TODAS as provas automaticamente, reescrevendo qualquer nota ou feedback anterior.\n\nPara não exceder o limite gratuito da IA, o sistema fará pausas de 1 minuto a cada 10 provas corrigidas.\n\nDeseja iniciar?`);
+            if(!isConfirmed) return;
 
             const btn = document.getElementById('btn-prof-corrigir-todos');
             const originalText = btn.innerHTML;
             
-            // Encontra qual é o ID da questão discursiva dinamicamente
             const discQ = bancoDeQuestoes.find(q => q.tipo === "discursiva");
             let falhas = 0;
             
             for(let i=0; i<examsToCorrect.length; i++) {
-                // Pausa de 60 segundos a cada 10 exames, mas não no primeiro
                 if (i > 0 && i % 10 === 0) {
                     for (let sec = 60; sec > 0; sec--) {
                         btn.innerHTML = `Pausa de segurança: ${sec}s <span class="animate-pulse">⏳</span>`;
@@ -1306,7 +1176,7 @@
             if (falhas > 0) {
                 mostrarAlerta("Correção Concluída", `Processo finalizado, mas ocorreram falhas na comunicação com a IA em ${falhas} exame(s). Verifique se a chave da API é válida.`, "⚠️");
             } else {
-                mostrarAlerta("Correção Concluída", "As provas selecionadas foram corrigidas com sucesso de forma estruturada e automática.", "🎉");
+                mostrarAlerta("Correção Concluída", "Todas as provas foram corrigidas com sucesso de forma estruturada e automática.", "🎉");
             }
             carregarRelatorioProf();
         };
@@ -1335,7 +1205,7 @@
             };
 
             let html = "";
-            let respostaDiscursivaAluno = ""; // Guarda a resposta para enviar para a IA
+            let respostaDiscursivaAluno = ""; 
             
             data.ordem.forEach((id, idx) => {
                 const q = bancoDeQuestoes.find(b => b.id === id);
@@ -1345,14 +1215,15 @@
                 if (q.tipo === "discursiva") respostaDiscursivaAluno = respAluno || "";
 
                 let pontuacao = "";
-                if (idx < 12) pontuacao = "0,75 Pt";
-                else if (idx === 12) pontuacao = "2,0 Pts";
-                else if (idx === 13) pontuacao = "3,0 Pts";
+                if (q.id === "q1" || q.id === "q2") pontuacao = "1,0 Pt";
+                else if (q.id === "q3") pontuacao = "4,0 Pts";
+                else if (q.id === "q4") pontuacao = "2,0 Pts";
+                else if (q.id === "q5") pontuacao = "6,0 Pts";
 
-                const badgePontos = `<span class="inline-block bg-blue-100 text-blue-800 text-[9px] md:text-[10px] font-black uppercase tracking-widest px-2 md:px-3 py-1 rounded-full ml-2 md:ml-3 align-middle shadow-sm border border-blue-200 mt-1 md:mt-0">Valendo ${pontuacao}</span>`;
+                const badgePontos = `<span class="inline-block bg-red-100 text-red-800 text-[9px] md:text-[10px] font-black uppercase tracking-widest px-2 md:px-3 py-1 rounded-full ml-2 md:ml-3 align-middle shadow-sm border border-red-200 mt-1 md:mt-0">Valendo ${pontuacao}</span>`;
                 
                 html += `<div class="p-5 md:p-8 bg-gray-50 rounded-2xl md:rounded-3xl border border-gray-200 shadow-sm">`;
-                html += `<p class="font-black text-lg md:text-xl text-gray-800 mb-4 md:mb-6 leading-relaxed text-justify"><span class="text-blue-600 mr-2 text-xl md:text-2xl">•</span> ${q.pergunta} ${badgePontos}</p>`;
+                html += `<p class="font-black text-lg md:text-xl text-gray-800 mb-4 md:mb-6 leading-relaxed text-justify"><span class="text-red-600 mr-2 text-xl md:text-2xl">•</span> ${q.pergunta} ${badgePontos}</p>`;
                 
                 if(q.tipo === "multipla") {
                     q.opcoes.forEach((op, i) => {
@@ -1448,7 +1319,7 @@
                 // Salvar a Correção Final
                 document.getElementById('btn-salvar-correcao').onclick = async () => {
                     const val = parseFloat(document.getElementById('input-nota-disc').value);
-                    if(isNaN(val) || val < 0 || val > 3) return mostrarAlerta("Erro de Digitação", "A nota discursiva deve ser entre 0 e 3.0", "⚠️");
+                    if(isNaN(val) || val < 0 || val > 6) return mostrarAlerta("Erro de Digitação", "A nota discursiva deve ser entre 0 e 6.0", "⚠️");
                     
                     const feed = document.getElementById('input-feedback-prof').value;
                     const final = nAuto + val;
